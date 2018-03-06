@@ -1,0 +1,25 @@
+nav.main-nav
+    span.toggle-components.icon-components#toggle-components
+    ul.components
+        each component in components
+            li.component
+                i.component__icon.icon-component
+                a(href=component + '.html').component__link #{component}
+
+    span.toggle-menu.icon-menu#toggle-menu
+    ul.main-menu
+        li.main-menu__item.main-menu__item--title Menú
+        each page in pages
+            if page === "inicio"
+                if page === currentPage
+                    li.main-menu__item: a(href='index.html').main-menu__link.active #{page}
+                else
+                    li.main-menu__item: a(href='index.html').main-menu__link #{page}
+            else
+                if page === currentPage
+                    li.main-menu__item: a(href=page + '.html').main-menu__link.active #{page}
+                else
+                    li.main-menu__item: a(href=page + '.html').main-menu__link #{page}
+        li.main-menu__item: a(href='descargar.html').main-menu__link.main-menu__link--footer-menu-link descargar
+        li.main-menu__item: a(href='https://github.com/jdgrid/jdgrid-ui' target="_blank").main-menu__link.main-menu__link--footer-menu-link github (ui)
+        li.main-menu__item: a(href='https://github.com/jdgrid/jdgrid-grid' target="_blank").main-menu__link.main-menu__link--footer-menu-link github (grid)
